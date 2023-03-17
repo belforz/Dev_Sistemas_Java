@@ -75,8 +75,30 @@ public class well {
            
         }
 
-        int res_t = (abc + bca) / 2;
+        int res_t = abc * bca ;
         JOptionPane.showMessageDialog(null, "O valor do retangulo é: " + res_t);
+        
+        } catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Characther inválido");
+
+            }
+    }
+    
+    void circulo  () {
+        try {
+
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor da raio"));
+
+        if (radius == 0 || radius >= 1000) {
+            System.out.println("Valor acima do normal,tente outra vez");
+        } else {
+           
+        }
+
+        double res_t = 2 * Math.PI * radius ;
+        String formattedResult = String.format("%.2f", res_t );
+        JOptionPane.showMessageDialog(null, "o valor da circulo é" + formattedResult);
+        
         
         } catch(Exception e){
         JOptionPane.showMessageDialog(null, "Characther inválido");

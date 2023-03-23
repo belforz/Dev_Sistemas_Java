@@ -4,31 +4,42 @@ package exercicio1;
 
 
 public class atividade_1 {
-    void a_v() {
+
+    void par_impar() {
         try {
-            int par = 0;
-            
-            for (int i = 0; i <= 100; i++) {
+            int somaPar = 0;
+            int somaImpar = 0;
+
+            for (int i = 1; i <= 100; i++) {
                 if (i % 2 == 0) {
-                    int par_1 = par + i;
-                    int soma = (i % 2) + par_1;
-                    
-                    
-                    System.out.println(i + " <Seu indice " + "," + " Este numero é par: >" + soma);
-                    
-                } else{
-                   
-                    System.out.println(i + " <Seu indice " + "," + " Este numero é impar: > " + i);
-                    
-                    
-                } 
-                 
-            }} catch (Exception e) {
+
+                    somaPar += i;
+
+                    System.out.println(i + " <Seu indice " + "," + " Este é valor para par: > " + somaPar);
+
+                } else {
+
+                    somaImpar += i;
+                    System.out.println(i + " <Seu indice " + "," + " Este é o valor para impar: > " + somaImpar);
+
+                }
+                int soma_global = somaPar + somaImpar;
+                System.out.println("Soma dos valores pares e impares anteriores:  " + soma_global);
+
+                if (somaPar < somaImpar) {
+                    System.out.println("Quem é o maior: " + somaImpar);
+                } else {
+                    System.out.println("Quem é o maior: " + somaPar);
+                }
+
+            }
+        } catch (Exception e) {
             System.out.println(e);
         }
 
-        }}
+    }
 
+}
    
         
     

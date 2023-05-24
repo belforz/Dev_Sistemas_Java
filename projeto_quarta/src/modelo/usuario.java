@@ -120,6 +120,15 @@ public class usuario {
     private String tamanho_roupa;
     private String filhos;
     private String observacao;
+    private String msg_txt;
+
+    public String getMsg_txt() {
+        return msg_txt;
+    }
+
+    public void setMsg_txt(String msg_txt) {
+        this.msg_txt = msg_txt;
+    }
     
     
 }

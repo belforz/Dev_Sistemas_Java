@@ -25,6 +25,7 @@ public class Usuario_Gui extends javax.swing.JFrame {
        nome_txt.setText("");
        idade_txt.setText("");
        status_txt.setText("");
+       aldeia_txt.setText("");
        dsc_txt.setText("");
        sangue_txt.setText("");
        numero_txt.setText("");
@@ -76,7 +77,7 @@ public class Usuario_Gui extends javax.swing.JFrame {
         btn_insere = new javax.swing.JButton();
         btn_atualiza = new javax.swing.JButton();
         btn_seleciona = new javax.swing.JButton();
-        jTextField14 = new javax.swing.JTextField();
+        msg_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +160,12 @@ public class Usuario_Gui extends javax.swing.JFrame {
             }
         });
 
+        msg_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                msg_txtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,7 +231,7 @@ public class Usuario_Gui extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btn_seleciona)
                         .addGap(139, 139, 139)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(msg_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(115, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -295,7 +302,7 @@ public class Usuario_Gui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_insere)
                             .addComponent(btn_atualiza)))
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(msg_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -348,6 +355,10 @@ public class Usuario_Gui extends javax.swing.JFrame {
         UsuarioGui btn = new UsuarioGui();
         btn.deleta(usuario);
     }//GEN-LAST:event_btn_deletaActionPerformed
+
+    private void msg_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_msg_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,7 +420,7 @@ public class Usuario_Gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField msg_txt;
     private javax.swing.JTextField nome_txt;
     private javax.swing.JTextField numero_txt;
     private javax.swing.JTextField obs_txt;

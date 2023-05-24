@@ -102,7 +102,7 @@
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       <Component id="btn_seleciona" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                      <Component id="jTextField14" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="msg_txt" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace pref="115" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -200,7 +200,7 @@
                           <Component id="btn_atualiza" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jTextField14" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="msg_txt" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -353,7 +353,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_selecionaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField14">
+    <Component class="javax.swing.JTextField" name="msg_txt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="msg_txtActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

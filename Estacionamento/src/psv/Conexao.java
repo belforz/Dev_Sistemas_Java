@@ -7,11 +7,11 @@ public class Conexao {
         Connection con = null;
         
         try{
-            Class.forName("com.mysql.cj.dbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             
             String url = "";
             url += "jdbc:mysql://127.0.0.1/estacionamento?";
-            url += "user=root&password=";
+            url += "user=root&password=leandro";
             
             con = DriverManager.getConnection(url);
             System.out.println("Conexão Aberta");

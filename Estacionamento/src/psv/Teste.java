@@ -7,8 +7,8 @@ public class Teste {
     public static void main(String[] args) { 
         Connection con = Conexao.abrirConexao();
         
-        CarroBean cb = new CarroBean();
-        CarroDAO cd = new CarroDAO(con);
+        PersonagemBean cb = new PersonagemBean();
+        PersonagemDAO cd = new PersonagemDAO(con);
         
         
         //Inserir

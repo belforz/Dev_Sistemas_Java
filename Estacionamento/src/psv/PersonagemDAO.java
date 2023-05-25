@@ -3,10 +3,10 @@ package psv;
 import java.sql.*;
 import java.util.*;
 
-public class CarroDAO {
+public class PersonagemDAO {
     private Connection con;
     
-    public CarroDAO(Connection con){
+    public PersonagemDAO(Connection con){
         setCon(con);
     }
     
@@ -18,8 +18,8 @@ public class CarroDAO {
         this.con = con;
     }
     
-    public String inserir(CarroBean carro){
-        String sql = "insert into carro(placa, cor, descricao, modelo) values(?,?,?,?)";
+    public String inserir(PersonagemBean carro){
+        String sql = "insert into carrobean(placa, cor, descricao, modelo) values(?,?,?,?)";
         
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -38,8 +38,8 @@ public class CarroDAO {
         }
     }
     
-    public String alterar(CarroBean carro){
-        String sql = "update carro set cor = ?,descricao = ?, modelo = ?"; 
+    public String alterar(PersonagemBean carro){
+        String sql = "update carrobean set cor = ?,descricao = ?, modelo = ?"; 
         sql += " where placa = ?"; 
         try { 
         PreparedStatement ps = getCon().prepareStatement(sql); 
@@ -58,8 +58,8 @@ public class CarroDAO {
         }
     }
     
-    public String excluir(CarroBean carro){
-        String sql = "delete from carro where placa = ?";
+    public String excluir(PersonagemBean carro){
+        String sql = "delete from carrobean where placa = ?";
         
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -75,9 +75,9 @@ public class CarroDAO {
         }
     }
     
-    public List<CarroBean> listarTodos(){
-        String sql = "select * from carro";
-        List<CarroBean> listaCarro = new ArrayList<CarroBean>();
+    public List<PersonagemBean> listarTodos(){
+        String sql = "select * from carrobean";
+        List<PersonagemBean> listaCarro = new ArrayList<PersonagemBean>();
         
         try{
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -85,7 +85,7 @@ public class CarroDAO {
             
             if(rs != null){
                 while(rs.next()){
-                    CarroBean cb = new CarroBean();                
+                    PersonagemBean cb = new PersonagemBean();                
                     cb.setPlaca(rs.getString(1));
                     cb.setCor(rs.getString(2));
                     cb.setDescricao(rs.getString(3));

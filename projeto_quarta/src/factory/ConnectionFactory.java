@@ -1,4 +1,5 @@
 
+
 package factory;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +10,7 @@ public class ConnectionFactory {
     public Connection getConnection(){
       try {
           return
-               DriverManager.getConnection("jdbc:mysql://localhost/projeto_quarta","root", "leandro");
+               DriverManager.getConnection("jdbc:mysql://localhost/final","root", "leandro");
       }catch (SQLException e){
           throw new RuntimeException(e);
       }

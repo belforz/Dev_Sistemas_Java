@@ -10,7 +10,7 @@ public class Conexao {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             
             String url = "";
-            url += "jdbc:mysql://127.0.0.1/estacionamento?";
+            url += "jdbc:mysql://127.0.0.1/final?";
             url += "user=root&password=leandro";
             
             con = DriverManager.getConnection(url);

@@ -47,7 +47,8 @@ public class PersonagemDAO {
     }
     
     public String alterar(PersonagemBean personagem){
-        String sql = "update personagens set nome= ? idade =? , status =?, descendencia = ? , sangue = ?, numero_ninjabook = ? , cor_olhos = ? , cor_cabelo = ? , tamanho_roupa= ? ,  filhos = ? ,observacao = ?, aldeia = ?)"; 
+        String sql = "UPDATE personagens SET nome = ?, idade = ?, status = ?, descendencia = ?, sangue = ?, numero_ninjabook = ?, cor_olhos = ?, cor_cabelo = ?, filhos = ?, observacao = ?, aldeia = ?, tamanho_roupa = ?";
+; 
         sql += " where id = ?"; 
         try { 
         PreparedStatement ps = getCon().prepareStatement(sql); 
@@ -59,11 +60,19 @@ public class PersonagemDAO {
             ps.setString(6,personagem.getNumero());
             ps.setString(7,personagem.getOlhos());
             ps.setString(8,personagem.getCabelos());
-            ps.setString(9,personagem.getTamanho());
-            ps.setString(10,personagem.getFilhos());
-            ps.setString(11,personagem.getObs());
-            ps.setString(12,personagem.getAldeia());
-        ps.setLong(13, personagem.getId()); 
+            ps.setString(9,personagem.getFilhos());
+            ps.setString(10,personagem.getObs());
+            ps.setString(11,personagem.getAldeia());
+            ps.setString(12,personagem.getTamanho());
+        
+            Long id = personagem.getId();
+        if (id != null) {
+            ps.setLong(13, id);
+        } else {
+            // Handle the case when the id is null
+            // You can throw an exception, log an error, or handle it as per your requirement
+            throw new IllegalArgumentException("ID cannot be null");
+        }
         
         if (ps.executeUpdate() > 0) { 
         return "Alterado com sucesso."; 

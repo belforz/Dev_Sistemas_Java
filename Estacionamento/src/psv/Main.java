@@ -453,22 +453,15 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "Idade", "Status", "Descendencia", "NinjaBook", "Olhos", "Cabelos", "Tamanho", "Filhos", "Obs", "Aldeia"
+                "Nome", "Idade", "Status", "Descendencia", "Sangue", "NinjaBook", "Olhos", "Cabelos", "Filhos", "Obs", "Aldeia", "Tamanho"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, true, true, true, true, true, true, true
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
         });
         tblConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -477,12 +470,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblConsulta);
-        if (tblConsulta.getColumnModel().getColumnCount() > 0) {
-            tblConsulta.getColumnModel().getColumn(1).setResizable(false);
-            tblConsulta.getColumnModel().getColumn(2).setResizable(false);
-            tblConsulta.getColumnModel().getColumn(3).setResizable(false);
-            tblConsulta.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -529,6 +516,7 @@ public class Main extends javax.swing.JFrame {
         txtFilhos.setText("");
         txtTamanho.setText("");
         txtObs.setText("");
+        txtAldeia.setText("");
         lblMensagem.setText("");
         
         DefaultTableModel tbm = (DefaultTableModel)tblConsulta.getModel();
@@ -567,15 +555,15 @@ public class Main extends javax.swing.JFrame {
         listaPersonagem = pd.listarTodos(); 
         DefaultTableModel tbm = (DefaultTableModel)tblConsulta.getModel(); 
         
-        for(int i = tbm.getRowCount()-1; i >= 0; i--){ 
-            tbm.removeRow(i); 
-        } 
+        tbm.setRowCount(0);
         
-        int i = 0; 
+            int i = 0; 
+        
+        
         
         for(PersonagemBean pb : listaPersonagem){ 
-            tbm.addRow(new String[1]); 
-            tblConsulta.setValueAt(pb.getId(), i, 0); 
+            tbm.addRow(new Object[13]);
+            tblConsulta.setValueAt(pb.getId(), i, 0);
             tblConsulta.setValueAt(pb.getNome(), i, 1); 
             tblConsulta.setValueAt(pb.getIdade(), i, 2);
             tblConsulta.setValueAt(pb.getStatus(), i, 3);
@@ -584,12 +572,13 @@ public class Main extends javax.swing.JFrame {
             tblConsulta.setValueAt(pb.getNumero(), i, 6);
             tblConsulta.setValueAt(pb.getOlhos(), i, 7);
             tblConsulta.setValueAt(pb.getCabelos(), i, 8);
-            tblConsulta.setValueAt(pb.getTamanho(), i, 9);
-            tblConsulta.setValueAt(pb.getFilhos(), i, 10);
-            tblConsulta.setValueAt(pb.getObs(), i, 11);
-            tblConsulta.setValueAt(pb.getAldeia(), i, 12);
+            tblConsulta.setValueAt(pb.getFilhos(), i, 9);
+            tblConsulta.setValueAt(pb.getObs(), i, 10);
+            tblConsulta.setValueAt(pb.getAldeia(), i, 11);
+            tblConsulta.setValueAt(pb.getTamanho(), i, 12);
             i++;
-        
+           
+    
         } 
         
         Conexao.fecharConexao(con);
@@ -658,21 +647,21 @@ public class Main extends javax.swing.JFrame {
 
     private void tblConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblConsultaMouseClicked
         Integer linha = tblConsulta.getSelectedRow();
-        String id = (String)tblConsulta.getValueAt(linha, 0);
-        String nome = (String)tblConsulta.getValueAt(linha, 1);
-        String idade = (String)tblConsulta.getValueAt(linha, 2);
-        String status = (String)tblConsulta.getValueAt(linha, 3);
-        String descendencia = (String)tblConsulta.getValueAt(linha, 4);
-        String sangue = (String)tblConsulta.getValueAt(linha, 5);
-        String numero = (String)tblConsulta.getValueAt(linha, 6);
-        String olhos = (String)tblConsulta.getValueAt(linha, 7);
-        String cabelos = (String)tblConsulta.getValueAt(linha, 8);
-        String tamanho = (String)tblConsulta.getValueAt(linha, 9);
+        String id = (String)tblConsulta.getValueAt(linha, 1);
+        String nome = (String)tblConsulta.getValueAt(linha, 2);
+        String idade = (String)tblConsulta.getValueAt(linha, 3);
+        String status = (String)tblConsulta.getValueAt(linha, 4);
+        String descendencia = (String)tblConsulta.getValueAt(linha, 5);
+        String sangue = (String)tblConsulta.getValueAt(linha, 6);
+        String numero = (String)tblConsulta.getValueAt(linha, 7);
+        String olhos = (String)tblConsulta.getValueAt(linha, 8);
+        String cabelos = (String)tblConsulta.getValueAt(linha, 9);
         String filhos = (String)tblConsulta.getValueAt(linha, 10);
         String obs = (String)tblConsulta.getValueAt(linha, 11);
         String aldeia = (String)tblConsulta.getValueAt(linha, 12);
+        String tamanho = (String)tblConsulta.getValueAt(linha, 13);
         
-        txtId.setText(id);
+        
         txtNome.setText(nome);
         txtIdade.setText(idade);
         txtStatus.setText(status);
@@ -681,10 +670,10 @@ public class Main extends javax.swing.JFrame {
         txtNumero.setText(numero);
         txtOlhos.setText(olhos);
         txtCabelos.setText(cabelos);
-        txtTamanho.setText(tamanho);
         txtFilhos.setText(filhos);
         txtObs.setText(obs);
         txtAldeia.setText(aldeia);
+        txtTamanho.setText(tamanho);
     }//GEN-LAST:event_tblConsultaMouseClicked
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed

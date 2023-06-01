@@ -3,13 +3,6 @@ package psv;
 public class PersonagemBean {
     private Long Id;
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long Id) {
-        this.Id = Id;
-    }
 private String Nome;
 private String Idade;
 private String Status;
@@ -19,6 +12,13 @@ private String Numero;
 private String Olhos;
 private String Cabelos;
 
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
     public String getNome() {
         return Nome;
     }
